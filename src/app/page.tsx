@@ -1,4 +1,5 @@
 import AppLayout from "@/layout/AppLayout";
+import TextEditor from "@/tools/editor/TextEditor";
 
 export default function Home() {
   return (
@@ -13,6 +14,9 @@ export default function Home() {
             enthusiasts seeking an elegant way to showcase their code snippets
             visually.
           </p>
+        </div>
+        <div className="landingpage__texteditor App__container">
+          <TextEditor />
         </div>
       </div>
     </AppLayout>
