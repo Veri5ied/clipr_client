@@ -1,0 +1,24 @@
+.topnavigation {
+  .topnavigation__container {
+    border-radius: 20px;
+    background: rgb(25, 25, 25);
+    box-shadow: 0px 4px 4px 0px rgba(7, 7, 7, 0.25);
+    backdrop-filter: blur(50px);
+    padding: 10px 75px;
+    min-height: 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @media (max-width: 768px) {
+      padding: 10px 25px;
+    }
+
+    a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 1.3rem;
+      font-weight: 700;
+    }
+  }
+}
