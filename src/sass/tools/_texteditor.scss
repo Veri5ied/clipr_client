@@ -63,3 +63,37 @@
   padding: 0.5em 0.8em;
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1);
 }
+
+.texteditor__macbar {
+  display: flex;
+  gap: 0.5rem;
+
+  div {
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  .mac-close {
+    background-color: #ff5f56;
+  }
+
+  .mac-minimize {
+    background-color: #ffbd2e;
+  }
+
+  .mac-expand {
+    background-color: #27c93f;
+  }
+}
+
+.texteditor__windowsbar {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+
+  div {
+    cursor: pointer;
+  }
+}
