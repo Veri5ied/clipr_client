@@ -1,17 +1,22 @@
 .texteditor__container {
-  max-width: 600px;
+  width: 800px;
+  max-width: 100%;
   margin: 0 auto;
   background: linear-gradient(#8a2be2, #ff00ff);
-  padding: 2em;
+  padding: 1em;
   border-radius: 8px;
+}
 
-  @media (max-width: 768px) {
-    padding: 1em;
-  }
+.cm-editor {
+  font-family: "Clash Display", sans-serif !important;
 }
 
 .cm-editor .cm-gutters {
   display: none;
+}
+
+.cm-editor .cm-activeLine {
+  background: none;
 }
 
 .cm-editor .cm-ySelectionInfo {
@@ -50,6 +55,8 @@
 
 .cm-editor .cm-scroller {
   padding-top: 1rem;
+  display: none;
+  overflow: hidden !important;
 }
 
 .cm-editor .cm-gutters {
@@ -64,9 +71,10 @@
 }
 
 .texteditor__panel {
-  background-color: rgb(74, 71, 71);
+  background-color: #1e1e1e;
   border-radius: 8px;
-  max-width: 520px;
+  //width: 520px;
+  max-width: 100%;
   margin: 0 auto;
   min-height: 230px;
   padding: 0.5em 0.8em;
