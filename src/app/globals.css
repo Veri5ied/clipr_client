@@ -10,8 +10,7 @@
 
 html,
 body {
-  background: linear-gradient(135deg, #333333, #000000, #333333),
-    url("/public/assets/background.png") no-repeat;
+  background: linear-gradient(135deg, #333333, #000000, #333333), no-repeat;
   min-height: 100vh;
 }
 
