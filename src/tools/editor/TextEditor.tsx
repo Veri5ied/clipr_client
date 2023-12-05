@@ -358,6 +358,7 @@ traverseTree(root);
           style={{
             margin: "0 auto",
           }}
+          className="docRef"
         >
           <div
             className="texteditor__container"
