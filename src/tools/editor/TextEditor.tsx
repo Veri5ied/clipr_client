@@ -177,6 +177,15 @@ traverseTree(root);
             className="texteditor__select"
             placeholder="Search to Select"
             optionFilterProp="children"
+            value={
+              languages &&
+              languages
+                .map((lang) => lang.name)
+                .find(
+                  (lang) =>
+                    lang?.toLocaleLowerCase() === language?.toLocaleLowerCase()
+                )
+            }
             virtual={false}
             filterOption={(input, option) =>
               (option?.label ?? "").includes(input)
