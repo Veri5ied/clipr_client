@@ -109,3 +109,13 @@
   color: #e0dbdb !important;
   font-family: "Clash Display", sans-serif !important;
 }
+
+:where(.css-6j9yrn).ant-select-dropdown {
+  background-color: #1e1e1e !important;
+  border-radius: 8px;
+  gap: 1rem;
+  color: #e0dbdb !important;
+  font-size: 0.892rem;
+  font-weight: 500;
+  cursor: pointer;
+}
