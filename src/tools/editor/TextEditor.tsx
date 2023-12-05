@@ -8,6 +8,7 @@ import { languages } from "@codemirror/language-data";
 import type { Color, ColorPickerProps } from "antd/es/color-picker";
 import { ColorPicker, Select } from "antd";
 import { themeArray } from "@/app/themes";
+import { FaApple, FaWindows } from "react-icons/fa";
 
 import {
   tomorrow,
@@ -293,6 +294,34 @@ traverseTree(root);
             }))}
             onChange={(value) => handleThemeChange(value)}
           />
+        </div>
+        <div className="texteditor-panel-item">
+          <h4>Platform:</h4>
+          <div
+            className="platform__item"
+            style={{
+              display: "flex",
+              gap: "10px",
+              alignItems: "center",
+            }}
+          >
+            <FaApple
+              size={23}
+              onClick={() => setOsType("mac")}
+              style={{
+                color: osType === "mac" ? "#fff" : "#000",
+                cursor: "pointer",
+              }}
+            />
+            <FaWindows
+              size={23}
+              onClick={() => setOsType("windows")}
+              style={{
+                color: osType === "windows" ? "#fff" : "#000",
+                cursor: "pointer",
+              }}
+            />
+          </div>
         </div>
         <div className="texteditor-panel-item">
           <h4>Export As PNG</h4>
