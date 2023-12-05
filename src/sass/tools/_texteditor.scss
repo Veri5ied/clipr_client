@@ -2,7 +2,7 @@
   width: 800px;
   max-width: 100%;
   margin: 0 auto;
-  background: linear-gradient(#8a2be2, #ff00ff);
+  //background: linear-gradient(#8a2be2, #ff00ff);
   padding: 1em;
   border-radius: 8px;
 }
@@ -16,6 +16,20 @@
   border-radius: 8px;
   min-height: 90px;
   margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  padding: 1em;
+
+  .theme__color-picker {
+    display: grid;
+    place-items: center;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    color: #e0dbdb;
+    cursor: pointer;
+    font-size: 0.892rem;
+    font-weight: 600;
+    border-radius: 8px;
+  }
 }
 
 .cm-editor {

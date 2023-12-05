@@ -1,18 +1,41 @@
 "use client";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
 import { EditorView, basicSetup } from "codemirror";
 import { EditorState } from "@codemirror/state";
-import { javascript } from "@codemirror/lang-javascript";
-import { html } from "@codemirror/lang-html";
 import { FiMinus } from "react-icons/fi";
 import { IoIosSquareOutline, IoMdClose } from "react-icons/io";
 import { languages } from "@codemirror/language-data";
+import type { Color, ColorPickerProps } from "antd/es/color-picker";
+import { ColorPicker, theme } from "antd";
 
-const TextEditor = () => {
+interface TextEditorProps {
+  color: Color | string | any;
+  setColor: (value: Color | string | any) => void;
+  formatRgb: ColorPickerProps["format"];
+  setFormatRgb: (value: ColorPickerProps["format"]) => void;
+  rgbString: string;
+}
+
+const TextEditor = ({
+  color,
+  setColor,
+  formatRgb,
+  setFormatRgb,
+  rgbString,
+}: TextEditorProps) => {
   const [element, setElement] = useState<HTMLElement | null>(null);
   const [osType, setOsType] = useState<string>("mac");
   const [language, setLanguage] = useState<string>("javascript");
   const [languageSupport, setLanguageSupport] = useState<any>(null);
+
+  useEffect(() => {
+    const os = navigator.platform;
+    if (os.includes("Mac")) {
+      setOsType("mac");
+    } else if (os.includes("Win")) {
+      setOsType("windows");
+    }
+  }, []);
 
   const ref = useCallback((node: HTMLElement | null) => {
     if (!node) return;
@@ -39,7 +62,6 @@ traverseTree(root);
       if (languageData) {
         const loadedlang = await languageData?.load();
         setLanguageSupport(loadedlang);
-        console.log(loadedlang);
       }
     };
 
@@ -106,8 +128,20 @@ traverseTree(root);
 
   return (
     <>
-      <div className="texteditor__panel-container"></div>
-      <div className="texteditor__container">
+      <div className="texteditor__panel-container">
+        <ColorPicker
+          format={formatRgb}
+          value={color}
+          onChange={setColor}
+          onFormatChange={setFormatRgb}
+        />
+      </div>
+      <div
+        className="texteditor__container"
+        style={{
+          backgroundColor: rgbString,
+        }}
+      >
         <div ref={ref} className="texteditor__panel">
           {osType === "mac" && (
             <div className="texteditor__macbar">
