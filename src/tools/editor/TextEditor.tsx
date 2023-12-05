@@ -51,7 +51,8 @@ const TextEditor = ({
   const [theme, setTheme] = useState<any>("dracula");
   const [themeSupport, setThemeSupport] = useState<any>(null);
 
-  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const editorView = useRef<EditorView | null>(null);
+  const editorContent = useRef<string>("");
 
   const ref = useCallback((node: HTMLElement | null) => {
     if (!node) return;
@@ -151,7 +152,7 @@ traverseTree(root);
     }
 
     const state = EditorState.create({
-      doc: codesample,
+      doc: editorContent.current || codesample,
       extensions: [
         basicSetup,
         ...languageExtensions,
@@ -184,10 +185,12 @@ traverseTree(root);
       ],
     });
 
-    view = new EditorView({
+    editorView.current = new EditorView({
       state,
       parent: element,
     });
+
+    view = editorView.current;
 
     return () => {
       view?.destroy();
@@ -195,6 +198,9 @@ traverseTree(root);
   }, [codesample, element, languageSupport, theme, themeSupport]);
 
   const handleThemeChange = (value: any) => {
+    if (editorView.current) {
+      editorContent.current = editorView.current.state.doc.toString();
+    }
     setTheme(value);
   };
 
