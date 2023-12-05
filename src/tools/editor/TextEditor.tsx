@@ -353,7 +353,12 @@ traverseTree(root);
         </div>
       </div>
       {rgbString && (
-        <div ref={docRef}>
+        <div
+          ref={docRef}
+          style={{
+            margin: "0 auto",
+          }}
+        >
           <div
             className="texteditor__container"
             style={{
