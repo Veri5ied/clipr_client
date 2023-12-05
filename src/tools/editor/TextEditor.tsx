@@ -79,10 +79,10 @@ traverseTree(root);
             border: "none",
           },
           ".cm-line": {
-            backgroundColor: "#1e1e1e",
+            backgroundColor: "unset",
           },
           ".cm-activeLine": {
-            backgroundColor: "#1e1e1e",
+            backgroundColor: "unset",
           },
           ".cm-selectionBackground": {
             backgroundColor: "#1e1e1e",
