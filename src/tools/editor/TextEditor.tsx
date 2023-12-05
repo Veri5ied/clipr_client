@@ -137,6 +137,7 @@ traverseTree(root);
             value={color}
             onChange={setColor}
             onFormatChange={setFormatRgb}
+            arrow={false}
             presets={[
               {
                 label: <label>Quick Picks</label>,
