@@ -19,6 +19,7 @@
   display: flex;
   align-items: center;
   padding: 1em;
+  gap: 2rem;
 
   .theme__color-picker {
     display: grid;
@@ -29,6 +30,37 @@
     font-size: 0.892rem;
     font-weight: 600;
     border-radius: 8px;
+  }
+
+  .texteditor__select {
+    width: 200px;
+    background-color: #1e1e1e !important;
+    border-radius: 8px;
+    gap: 1rem;
+    color: #e0dbdb;
+    font-size: 0.892rem;
+    font-weight: 500;
+    cursor: pointer;
+    border: #1e1e1e !important;
+  }
+
+  .texteditor-panel-item {
+    h4 {
+      font-size: 0.892rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+      display: block;
+      cursor: pointer;
+    }
+  }
+
+  .ant-select-selection-search {
+    background-color: #1e1e1e !important;
+    border-radius: 8px;
+    color: #e0dbdb;
+    font-size: 0.892rem;
+    font-weight: 500;
+    cursor: pointer;
   }
 }
 

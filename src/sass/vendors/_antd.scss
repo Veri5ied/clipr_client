@@ -1,0 +1,77 @@
+:where(.css-dev-only-do-not-override-6j9yrn).ant-select:not(
+    .ant-select-customize-input
+  )
+  .ant-select-selector {
+  background-color: #1e1e1e !important;
+  border-radius: 8px;
+  gap: 1rem;
+  color: #e0dbdb;
+  font-size: 0.892rem;
+  font-weight: 500;
+  cursor: pointer;
+
+  border-color: unset !important;
+
+  &:hover {
+    border-color: unset !important;
+  }
+
+  &:focus {
+    border-color: unset !important;
+  }
+
+  &:active {
+    border-color: unset !important;
+  }
+
+  &:focus-visible {
+    border-color: unset !important;
+  }
+}
+
+:where(.css-dev-only-do-not-override-6j9yrn).ant-select:not(
+    .ant-select-disabled
+  ):not(.ant-select-customize-input):not(.ant-pagination-size-changer):hover
+  .ant-select-selector {
+  border-color: unset !important;
+}
+
+:where(.css-dev-only-do-not-override-6j9yrn).ant-select .ant-select-arrow {
+  color: #e0dbdb !important;
+}
+
+.rc-virtual-list-holder {
+  background-color: #1e1e1e !important;
+  border-radius: 8px;
+  gap: 1rem;
+  color: #e0dbdb !important;
+  font-size: 0.892rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+:where(.css-dev-only-do-not-override-6j9yrn).ant-select-dropdown
+  .ant-select-item-option-content {
+  color: #e0dbdb !important;
+  font-family: "Clash Display", sans-serif;
+}
+
+:where(.css-dev-only-do-not-override-6j9yrn).ant-select-dropdown {
+  background-color: #1e1e1e !important;
+  border-radius: 8px;
+  gap: 1rem;
+  color: #e0dbdb !important;
+  font-size: 0.892rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+:where(.css-dev-only-do-not-override-6j9yrn).ant-select-dropdown
+  .ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
+  background-color: #1e1e1e !important;
+  color: #e0dbdb !important;
+}
+
+.ant-empty-description {
+  color: #e0dbdb !important;
+}

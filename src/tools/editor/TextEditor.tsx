@@ -6,7 +6,8 @@ import { FiMinus } from "react-icons/fi";
 import { IoIosSquareOutline, IoMdClose } from "react-icons/io";
 import { languages } from "@codemirror/language-data";
 import type { Color, ColorPickerProps } from "antd/es/color-picker";
-import { ColorPicker, theme } from "antd";
+import { ColorPicker, Select } from "antd";
+import SelectInput from "@/components/select/SelectInput";
 
 interface TextEditorProps {
   color: Color | string | any;
@@ -129,42 +130,71 @@ traverseTree(root);
   return (
     <>
       <div className="texteditor__panel-container">
-        <ColorPicker
-          format={formatRgb}
-          value={color}
-          onChange={setColor}
-          onFormatChange={setFormatRgb}
-          presets={[
-            {
-              label: <label>Quick Picks</label>,
-              colors: [
-                "#000000",
-                "#000000E0",
-                "#000000A6",
-                "#F5222D",
-                "#FA8C16",
-                "#FADB14",
-                "#8BBB11",
-                "#52C41A",
-                "#13A8A8",
-                "#1677FF",
-                "#2F54EB",
-                "#722ED1",
-                "#EB2F96",
-                "#F5222D4D",
-                "#FA8C164D",
-                "#FADB144D",
-                "#8BBB114D",
-                "#52C41A4D",
-                "#13A8A84D",
-                "#1677FF4D",
-                "#2F54EB4D",
-                "#722ED14D",
-                "#EB2F964D",
-              ],
-            },
-          ]}
-        />
+        <div className="texteditor-panel-item">
+          <h4>Background:</h4>
+          <ColorPicker
+            format={formatRgb}
+            value={color}
+            onChange={setColor}
+            onFormatChange={setFormatRgb}
+            presets={[
+              {
+                label: <label>Quick Picks</label>,
+                colors: [
+                  "#000000",
+                  "#000000E0",
+                  "#000000A6",
+                  "#F5222D",
+                  "#FA8C16",
+                  "#FADB14",
+                  "#8BBB11",
+                  "#52C41A",
+                  "#13A8A8",
+                  "#1677FF",
+                  "#2F54EB",
+                  "#722ED1",
+                  "#EB2F96",
+                  "#F5222D4D",
+                  "#FA8C164D",
+                  "#FADB144D",
+                  "#8BBB114D",
+                  "#52C41A4D",
+                  "#13A8A84D",
+                  "#1677FF4D",
+                  "#2F54EB4D",
+                  "#722ED14D",
+                  "#EB2F964D",
+                ],
+              },
+            ]}
+          />
+        </div>
+        <div className="texteditor-panel-item">
+          <h4>Language:</h4>
+          <Select
+            showSearch
+            className="texteditor__select"
+            placeholder="Search to Select"
+            optionFilterProp="children"
+            virtual={false}
+            filterOption={(input, option) =>
+              (option?.label ?? "").includes(input)
+            }
+            filterSort={(optionA, optionB) =>
+              (optionA?.label ?? "")
+                .toLowerCase()
+                .localeCompare((optionB?.label ?? "").toLowerCase())
+            }
+            options={
+              languages &&
+              languages.map((lang) => ({
+                label: lang.name,
+                value: lang.name,
+              }))
+            }
+            onChange={(value) => setLanguage(value)}
+          />
+        </div>
       </div>
       <div
         className="texteditor__container"
