@@ -345,13 +345,73 @@ traverseTree(root);
           {osType === "windows" && (
             <div className="texteditor__windowsbar">
               <div className="windows-close">
-                <FiMinus size={18} />
+                <FiMinus
+                  size={18}
+                  color={
+                    theme === "tomorrow" ||
+                    theme === "solarizedLight" ||
+                    theme === "smoothy" ||
+                    theme === "rosePineDawn" ||
+                    theme === "noctisLilac" ||
+                    theme === "espresso" ||
+                    theme === "dracula" ||
+                    theme === "cobalt" ||
+                    theme === "coolGlow" ||
+                    theme === "clouds" ||
+                    theme === "bespin" ||
+                    theme === "birdsOfParadise" ||
+                    theme === "ayuLight" ||
+                    theme === "amy"
+                      ? "#000"
+                      : "#fff"
+                  }
+                />
               </div>
               <div className="windows-minimize">
-                <IoIosSquareOutline size={18} />
+                <IoIosSquareOutline
+                  size={18}
+                  color={
+                    theme === "tomorrow" ||
+                    theme === "solarizedLight" ||
+                    theme === "smoothy" ||
+                    theme === "rosePineDawn" ||
+                    theme === "noctisLilac" ||
+                    theme === "espresso" ||
+                    theme === "dracula" ||
+                    theme === "cobalt" ||
+                    theme === "coolGlow" ||
+                    theme === "clouds" ||
+                    theme === "bespin" ||
+                    theme === "birdsOfParadise" ||
+                    theme === "ayuLight" ||
+                    theme === "amy"
+                      ? "#000"
+                      : "#fff"
+                  }
+                />
               </div>
               <div className="windows-expand">
-                <IoMdClose size={18} />
+                <IoMdClose
+                  size={18}
+                  color={
+                    theme === "tomorrow" ||
+                    theme === "solarizedLight" ||
+                    theme === "smoothy" ||
+                    theme === "rosePineDawn" ||
+                    theme === "noctisLilac" ||
+                    theme === "espresso" ||
+                    theme === "dracula" ||
+                    theme === "cobalt" ||
+                    theme === "coolGlow" ||
+                    theme === "clouds" ||
+                    theme === "bespin" ||
+                    theme === "birdsOfParadise" ||
+                    theme === "ayuLight" ||
+                    theme === "amy"
+                      ? "#000"
+                      : "#fff"
+                  }
+                />
               </div>
             </div>
           )}
