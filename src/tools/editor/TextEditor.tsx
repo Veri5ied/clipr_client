@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect, useCallback, useMemo } from "react";
+import { useState, useEffect, useCallback, useMemo, useRef } from "react";
 import { EditorView, basicSetup } from "codemirror";
 import { EditorState } from "@codemirror/state";
 import { FiMinus } from "react-icons/fi";
@@ -8,6 +8,7 @@ import { languages } from "@codemirror/language-data";
 import type { Color, ColorPickerProps } from "antd/es/color-picker";
 import { ColorPicker, Select } from "antd";
 import { themeArray } from "@/app/themes";
+
 import {
   tomorrow,
   solarizedLight,
@@ -48,6 +49,8 @@ const TextEditor = ({
   const [languageSupport, setLanguageSupport] = useState<any>(null);
   const [theme, setTheme] = useState<any>("dracula");
   const [themeSupport, setThemeSupport] = useState<any>(null);
+
+  const canvasRef = useRef<HTMLCanvasElement>(null);
 
   const ref = useCallback((node: HTMLElement | null) => {
     if (!node) return;
@@ -154,11 +157,6 @@ traverseTree(root);
         themeSupport,
         EditorView.lineWrapping,
         EditorView.baseTheme({
-          "&": {
-            fontSize: "16px",
-            fontFamily: "Clash Display",
-            lineHeight: "24px",
-          },
           ".cm-scroller": {
             overflow: "hidden !important",
           },
@@ -196,9 +194,10 @@ traverseTree(root);
   }, [codesample, element, languageSupport, theme, themeSupport]);
 
   const handleThemeChange = (value: any) => {
-    //setTheme(value);
     setTheme(value);
   };
+
+  const handleImageDownload = () => {};
 
   return (
     <>
@@ -294,6 +293,10 @@ traverseTree(root);
             }))}
             onChange={(value) => handleThemeChange(value)}
           />
+        </div>
+        <div className="texteditor-panel-item">
+          <h4>Export As PNG</h4>
+          <button onClick={handleImageDownload}>Download</button>
         </div>
       </div>
       <div
