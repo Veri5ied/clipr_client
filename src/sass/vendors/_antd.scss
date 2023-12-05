@@ -75,3 +75,37 @@
 .ant-empty-description {
   color: #e0dbdb !important;
 }
+
+:where(.css-6j9yrn).ant-select:not(.ant-select-customize-input)
+  .ant-select-selector {
+  background-color: #1e1e1e !important;
+  border-radius: 8px;
+  gap: 1rem;
+  color: #e0dbdb;
+  font-size: 0.892rem;
+  font-weight: 500;
+  cursor: pointer;
+
+  border-color: unset !important;
+
+  &:hover {
+    border-color: unset !important;
+  }
+
+  &:focus {
+    border-color: unset !important;
+  }
+
+  &:active {
+    border-color: unset !important;
+  }
+
+  &:focus-visible {
+    border-color: unset !important;
+  }
+}
+
+:where(.css-6j9yrn).ant-select-dropdown .ant-select-item {
+  color: #e0dbdb !important;
+  font-family: "Clash Display", sans-serif !important;
+}
