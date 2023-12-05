@@ -9,7 +9,7 @@ import type { Color, ColorPickerProps } from "antd/es/color-picker";
 import { ColorPicker, Select } from "antd";
 import { themeArray } from "@/app/themes";
 import { FaApple, FaWindows } from "react-icons/fa";
-
+import { IoCodeDownloadSharp } from "react-icons/io5";
 import {
   tomorrow,
   solarizedLight,
@@ -28,6 +28,7 @@ import {
   ayuLight,
   amy,
 } from "thememirror";
+import { toPng } from "html-to-image";
 
 interface TextEditorProps {
   color: Color | string | any;
@@ -53,6 +54,7 @@ const TextEditor = ({
 
   const editorView = useRef<EditorView | null>(null);
   const editorContent = useRef<string>("");
+  const docRef = useRef<HTMLDivElement>(null);
 
   const ref = useCallback((node: HTMLElement | null) => {
     if (!node) return;
@@ -204,7 +206,21 @@ traverseTree(root);
     setTheme(value);
   };
 
-  const handleImageDownload = () => {};
+  const handleImageDownload = useCallback(() => {
+    if (docRef.current === null) {
+      return;
+    }
+    toPng(docRef.current, { cacheBust: true, quality: 1 })
+      .then((dataUrl) => {
+        const link = document.createElement("a");
+        link.download = "cliprsh.png";
+        link.href = dataUrl;
+        link.click();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [docRef]);
 
   return (
     <>
@@ -331,98 +347,102 @@ traverseTree(root);
         </div>
         <div className="texteditor-panel-item">
           <h4>Export As PNG</h4>
-          <button onClick={handleImageDownload}>Download</button>
+          <button onClick={handleImageDownload}>
+            Export <IoCodeDownloadSharp size={18} />
+          </button>
         </div>
       </div>
       {rgbString && (
-        <div
-          className="texteditor__container"
-          style={{
-            backgroundColor: rgbString,
-            minHeight: "90px",
-          }}
-        >
-          <div ref={ref} className="texteditor__panel">
-            {osType === "mac" && (
-              <div className="texteditor__macbar">
-                <div className="mac-close"></div>
-                <div className="mac-minimize"></div>
-                <div className="mac-expand"></div>
-              </div>
-            )}
-            {osType === "windows" && (
-              <div className="texteditor__windowsbar">
-                <div className="windows-close">
-                  <FiMinus
-                    size={18}
-                    color={
-                      theme === "tomorrow" ||
-                      theme === "solarizedLight" ||
-                      theme === "smoothy" ||
-                      theme === "rosePineDawn" ||
-                      theme === "noctisLilac" ||
-                      theme === "espresso" ||
-                      theme === "dracula" ||
-                      theme === "cobalt" ||
-                      theme === "coolGlow" ||
-                      theme === "clouds" ||
-                      theme === "bespin" ||
-                      theme === "birdsOfParadise" ||
-                      theme === "ayuLight" ||
-                      theme === "amy"
-                        ? "#000"
-                        : "#fff"
-                    }
-                  />
+        <div ref={docRef}>
+          <div
+            className="texteditor__container"
+            style={{
+              backgroundColor: rgbString,
+              minHeight: "90px",
+            }}
+          >
+            <div ref={ref} className="texteditor__panel">
+              {osType === "mac" && (
+                <div className="texteditor__macbar">
+                  <div className="mac-close"></div>
+                  <div className="mac-minimize"></div>
+                  <div className="mac-expand"></div>
                 </div>
-                <div className="windows-minimize">
-                  <IoIosSquareOutline
-                    size={18}
-                    color={
-                      theme === "tomorrow" ||
-                      theme === "solarizedLight" ||
-                      theme === "smoothy" ||
-                      theme === "rosePineDawn" ||
-                      theme === "noctisLilac" ||
-                      theme === "espresso" ||
-                      theme === "dracula" ||
-                      theme === "cobalt" ||
-                      theme === "coolGlow" ||
-                      theme === "clouds" ||
-                      theme === "bespin" ||
-                      theme === "birdsOfParadise" ||
-                      theme === "ayuLight" ||
-                      theme === "amy"
-                        ? "#000"
-                        : "#fff"
-                    }
-                  />
+              )}
+              {osType === "windows" && (
+                <div className="texteditor__windowsbar">
+                  <div className="windows-close">
+                    <FiMinus
+                      size={18}
+                      color={
+                        theme === "tomorrow" ||
+                        theme === "solarizedLight" ||
+                        theme === "smoothy" ||
+                        theme === "rosePineDawn" ||
+                        theme === "noctisLilac" ||
+                        theme === "espresso" ||
+                        theme === "dracula" ||
+                        theme === "cobalt" ||
+                        theme === "coolGlow" ||
+                        theme === "clouds" ||
+                        theme === "bespin" ||
+                        theme === "birdsOfParadise" ||
+                        theme === "ayuLight" ||
+                        theme === "amy"
+                          ? "#000"
+                          : "#fff"
+                      }
+                    />
+                  </div>
+                  <div className="windows-minimize">
+                    <IoIosSquareOutline
+                      size={18}
+                      color={
+                        theme === "tomorrow" ||
+                        theme === "solarizedLight" ||
+                        theme === "smoothy" ||
+                        theme === "rosePineDawn" ||
+                        theme === "noctisLilac" ||
+                        theme === "espresso" ||
+                        theme === "dracula" ||
+                        theme === "cobalt" ||
+                        theme === "coolGlow" ||
+                        theme === "clouds" ||
+                        theme === "bespin" ||
+                        theme === "birdsOfParadise" ||
+                        theme === "ayuLight" ||
+                        theme === "amy"
+                          ? "#000"
+                          : "#fff"
+                      }
+                    />
+                  </div>
+                  <div className="windows-expand">
+                    <IoMdClose
+                      size={18}
+                      color={
+                        theme === "tomorrow" ||
+                        theme === "solarizedLight" ||
+                        theme === "smoothy" ||
+                        theme === "rosePineDawn" ||
+                        theme === "noctisLilac" ||
+                        theme === "espresso" ||
+                        theme === "dracula" ||
+                        theme === "cobalt" ||
+                        theme === "coolGlow" ||
+                        theme === "clouds" ||
+                        theme === "bespin" ||
+                        theme === "birdsOfParadise" ||
+                        theme === "ayuLight" ||
+                        theme === "amy"
+                          ? "#000"
+                          : "#fff"
+                      }
+                    />
+                  </div>
                 </div>
-                <div className="windows-expand">
-                  <IoMdClose
-                    size={18}
-                    color={
-                      theme === "tomorrow" ||
-                      theme === "solarizedLight" ||
-                      theme === "smoothy" ||
-                      theme === "rosePineDawn" ||
-                      theme === "noctisLilac" ||
-                      theme === "espresso" ||
-                      theme === "dracula" ||
-                      theme === "cobalt" ||
-                      theme === "coolGlow" ||
-                      theme === "clouds" ||
-                      theme === "bespin" ||
-                      theme === "birdsOfParadise" ||
-                      theme === "ayuLight" ||
-                      theme === "amy"
-                        ? "#000"
-                        : "#fff"
-                    }
-                  />
-                </div>
-              </div>
-            )}
+              )}
+            </div>
           </div>
         </div>
       )}

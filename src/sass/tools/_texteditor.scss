@@ -66,6 +66,9 @@
       border: 1px solid #8e8a8a;
       background-color: #1e1e1e;
       transition: all 0.2s ease-in-out;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
 
       &:hover {
         background-color: #8e8a8a;
