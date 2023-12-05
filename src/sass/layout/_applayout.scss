@@ -6,15 +6,15 @@
   padding: 6rem 0 4rem;
 }
 
-.animated-gradient {
+/* .animated-gradient {
   width: 100%;
   min-height: 100vh;
   background: linear-gradient(135deg, #333333, #000000, #333333);
   background-size: 400% 400%;
   animation: gradientAnimation 10s ease infinite;
-}
+} */
 
-@keyframes gradientAnimation {
+/* @keyframes gradientAnimation {
   0% {
     background-position: 0% 50%;
   }
@@ -25,3 +25,4 @@
     background-position: 0% 50%;
   }
 }
+ */

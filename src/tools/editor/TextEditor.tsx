@@ -105,30 +105,33 @@ traverseTree(root);
   }, [codesample, element, languageSupport]);
 
   return (
-    <div className="texteditor__container">
-      <div ref={ref} className="texteditor__panel">
-        {osType === "mac" && (
-          <div className="texteditor__macbar">
-            <div className="mac-close"></div>
-            <div className="mac-minimize"></div>
-            <div className="mac-expand"></div>
-          </div>
-        )}
-        {osType === "windows" && (
-          <div className="texteditor__windowsbar">
-            <div className="windows-close">
-              <FiMinus size={18} />
+    <>
+      <div className="texteditor__panel-container"></div>
+      <div className="texteditor__container">
+        <div ref={ref} className="texteditor__panel">
+          {osType === "mac" && (
+            <div className="texteditor__macbar">
+              <div className="mac-close"></div>
+              <div className="mac-minimize"></div>
+              <div className="mac-expand"></div>
             </div>
-            <div className="windows-minimize">
-              <IoIosSquareOutline size={18} />
+          )}
+          {osType === "windows" && (
+            <div className="texteditor__windowsbar">
+              <div className="windows-close">
+                <FiMinus size={18} />
+              </div>
+              <div className="windows-minimize">
+                <IoIosSquareOutline size={18} />
+              </div>
+              <div className="windows-expand">
+                <IoMdClose size={18} />
+              </div>
             </div>
-            <div className="windows-expand">
-              <IoMdClose size={18} />
-            </div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

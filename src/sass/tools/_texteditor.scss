@@ -7,6 +7,17 @@
   border-radius: 8px;
 }
 
+.texteditor__panel-container {
+  background-color: #1e1e1e;
+  border: 1px solid #8e8a8a;
+  width: 900px;
+  max-width: 100%;
+  margin: 0 auto;
+  border-radius: 8px;
+  min-height: 90px;
+  margin-bottom: 2rem;
+}
+
 .cm-editor {
   font-family: "Clash Display", sans-serif !important;
 }
