@@ -154,3 +154,16 @@
   .ant-collapse-expand-icon {
   color: #e0dbdb !important;
 }
+
+:where(.css-6j9yrn).ant-color-picker
+  .ant-color-picker-inner-content
+  .ant-color-picker-presets
+  .ant-collapse-item
+  > .ant-collapse-header
+  .ant-collapse-expand-icon {
+  color: #e0dbdb !important;
+}
+
+.ant-collapse-expand-icon {
+  color: #e0dbdb !important;
+}
