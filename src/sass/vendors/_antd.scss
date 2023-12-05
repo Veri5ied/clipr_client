@@ -167,3 +167,11 @@
 .ant-collapse-expand-icon {
   color: #e0dbdb !important;
 }
+
+:where(.css-6j9yrn).ant-popover .ant-popover-inner-content {
+  background-color: #1e1e1e !important;
+  color: #e0dbdb !important;
+  font-size: 0.892rem;
+  font-weight: 500;
+  cursor: pointer;
+}
