@@ -1,0 +1,26 @@
+export const themeArray = [
+  { label: "Tomorrow", value: "tomorrow", default: true, key: "tomorrow" },
+  {
+    label: "Solarized Light",
+    value: "solarizedLight",
+    key: "solarizedLight",
+  },
+  { label: "Smoothy", value: "smoothy", key: "smoothy" },
+  { label: "Rose Pine Dawn", value: "rosePineDawn", key: "rosePineDawn" },
+  { label: "Noctis Lilac", value: "noctisLilac", key: "noctisLilac" },
+  { label: "Espresso", value: "espresso", key: "espresso" },
+  { label: "Dracula", value: "dracula", key: "dracula" },
+  { label: "Cobalt", value: "cobalt", key: "cobalt" },
+  { label: "Cool Glow", value: "coolGlow", key: "coolGlow" },
+  { label: "Clouds", value: "clouds", key: "clouds" },
+  { label: "Boys And Girls", value: "boysAndGirls", key: "boysAndGirls" },
+  { label: "Barf", value: "barf", key: "barf" },
+  { label: "Bespin", value: "bespin", key: "bespin" },
+  {
+    label: "Birds Of Paradise",
+    value: "birdsOfParadise",
+    key: "birdsOfParadise",
+  },
+  { label: "Ayu Light", value: "ayuLight", key: "ayuLight" },
+  { label: "Amy", value: "amy", key: "amy" },
+];

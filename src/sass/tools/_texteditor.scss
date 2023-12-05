@@ -20,6 +20,7 @@
   align-items: center;
   padding: 1em;
   gap: 2rem;
+  flex-wrap: wrap;
 
   .theme__color-picker {
     display: grid;
@@ -105,6 +106,7 @@
 .cm-editor {
   height: 100%;
   font-size: 14px;
+  border-radius: 8px;
 }
 
 .cm-editor.cm-focused {
@@ -128,20 +130,26 @@
   border-radius: 20px;
 }
 
+.ͼ4 .cm-content {
+  padding: 1rem 0.5rem;
+}
+
 .texteditor__panel {
-  background-color: #1e1e1e;
   border-radius: 8px;
-  //width: 520px;
+  max-width: 520px;
   max-width: 100%;
   margin: 0 auto;
-  min-height: 230px;
-  padding: 0.5em 0.8em;
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1);
+  position: relative;
+  //min-height: 230px;
+  //padding: 0.5em 0.8em;
 }
 
 .texteditor__macbar {
   display: flex;
   gap: 0.5rem;
+  position: absolute;
+  z-index: 9999;
+  padding: 0.4em 0.8em;
 
   div {
     height: 15px;
@@ -167,6 +175,10 @@
   display: flex;
   justify-content: flex-end;
   gap: 0.5rem;
+  position: absolute;
+  z-index: 9999;
+  padding: 0.4em 0.8em;
+  right: 0;
 
   div {
     cursor: pointer;

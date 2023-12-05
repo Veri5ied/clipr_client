@@ -7,7 +7,25 @@ import { IoIosSquareOutline, IoMdClose } from "react-icons/io";
 import { languages } from "@codemirror/language-data";
 import type { Color, ColorPickerProps } from "antd/es/color-picker";
 import { ColorPicker, Select } from "antd";
-import SelectInput from "@/components/select/SelectInput";
+import { themeArray } from "@/app/themes";
+import {
+  tomorrow,
+  solarizedLight,
+  smoothy,
+  rosePineDawn,
+  noctisLilac,
+  espresso,
+  dracula,
+  cobalt,
+  coolGlow,
+  clouds,
+  boysAndGirls,
+  barf,
+  bespin,
+  birdsOfParadise,
+  ayuLight,
+  amy,
+} from "thememirror";
 
 interface TextEditorProps {
   color: Color | string | any;
@@ -28,15 +46,8 @@ const TextEditor = ({
   const [osType, setOsType] = useState<string>("mac");
   const [language, setLanguage] = useState<string>("javascript");
   const [languageSupport, setLanguageSupport] = useState<any>(null);
-
-  useEffect(() => {
-    const os = navigator.platform;
-    if (os.includes("Mac")) {
-      setOsType("mac");
-    } else if (os.includes("Win")) {
-      setOsType("windows");
-    }
-  }, []);
+  const [theme, setTheme] = useState<any>("dracula");
+  const [themeSupport, setThemeSupport] = useState<any>(null);
 
   const ref = useCallback((node: HTMLElement | null) => {
     if (!node) return;
@@ -49,6 +60,63 @@ traverseTree(node.right));
 const root = { value: 5, left: { value: 3, left: { value: 1 }, right: { value: 4 } }, right: { value: 7 } };
 traverseTree(root);
 `;
+
+  //switch themes
+  useEffect(() => {
+    switch (theme) {
+      case "tomorrow":
+        setThemeSupport(tomorrow);
+        break;
+      case "solarizedLight":
+        setThemeSupport(solarizedLight);
+        break;
+      case "smoothy":
+        setThemeSupport(smoothy);
+        break;
+      case "rosePineDawn":
+        setThemeSupport(rosePineDawn);
+        break;
+      case "noctisLilac":
+        setThemeSupport(noctisLilac);
+        break;
+      case "espresso":
+        setThemeSupport(espresso);
+        break;
+      case "dracula":
+        setThemeSupport(dracula);
+        break;
+      case "cobalt":
+        setThemeSupport(cobalt);
+        break;
+      case "coolGlow":
+        setThemeSupport(coolGlow);
+        break;
+      case "clouds":
+        setThemeSupport(clouds);
+        break;
+      case "boysAndGirls":
+        setThemeSupport(boysAndGirls);
+        break;
+      case "barf":
+        setThemeSupport(barf);
+        break;
+      case "bespin":
+        setThemeSupport(bespin);
+        break;
+      case "birdsOfParadise":
+        setThemeSupport(birdsOfParadise);
+        break;
+      case "ayuLight":
+        setThemeSupport(ayuLight);
+        break;
+      case "amy":
+        setThemeSupport(amy);
+        break;
+      default:
+        setThemeSupport(dracula);
+        break;
+    }
+  }, [theme]);
 
   //get the language data
   useEffect(() => {
@@ -83,13 +151,13 @@ traverseTree(root);
       extensions: [
         basicSetup,
         ...languageExtensions,
+        themeSupport,
         EditorView.lineWrapping,
         EditorView.baseTheme({
           "&": {
             fontSize: "16px",
             fontFamily: "Clash Display",
             lineHeight: "24px",
-            color: "#fff",
           },
           ".cm-scroller": {
             overflow: "hidden !important",
@@ -125,7 +193,12 @@ traverseTree(root);
     return () => {
       view?.destroy();
     };
-  }, [codesample, element, languageSupport]);
+  }, [codesample, element, languageSupport, theme, themeSupport]);
+
+  const handleThemeChange = (value: any) => {
+    //setTheme(value);
+    setTheme(value);
+  };
 
   return (
     <>
@@ -203,6 +276,23 @@ traverseTree(root);
               }))
             }
             onChange={(value) => setLanguage(value)}
+          />
+        </div>
+        <div className="texteditor-panel-item">
+          <h4>Editor Theme:</h4>
+          <Select
+            showSearch
+            className="texteditor__select"
+            placeholder="Search to Select"
+            optionFilterProp="children"
+            virtual={false}
+            value={theme}
+            options={themeArray.map((tim, index) => ({
+              label: tim.label,
+              value: tim.value,
+              key: `${tim.key}-${index}`,
+            }))}
+            onChange={(value) => handleThemeChange(value)}
           />
         </div>
       </div>
